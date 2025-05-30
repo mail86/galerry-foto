@@ -3,104 +3,98 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #fff;
+  background: url('natural.gif') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
 }
 
 .login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 32px 16px;
-  max-width: 480px;
-  margin: auto;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  box-sizing: border-box;
 }
 
-.logo {
-  width: 60px;
-  margin-bottom: 24px;
+.app-title {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 16px;
 }
 
 .login-box {
-  width: 100%;
-  background: white;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .login-box input {
   width: 100%;
-  padding: 14px;
+  padding: 12px;
   margin-bottom: 12px;
-  font-size: 16px;
+  font-size: 15px;
   border: 1px solid #ccc;
   border-radius: 6px;
   box-sizing: border-box;
-}
-
-button {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
+  outline: none;
 }
 
 .login-box button {
-  background-color: #1877f2;
+  background-color: #3b82f6;
   color: white;
-  margin-bottom: 16px;
+  font-weight: 600;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
 }
 
 .login-box button:hover {
-  background-color: #155ecb;
+  background-color: #2563eb;
 }
 
 .forgot-link {
   display: block;
-  text-align: center;
-  margin-bottom: 20px;
+  text-align: right;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #3b82f6;
   text-decoration: none;
-  color: #1877f2;
-  font-size: 14px;
 }
 
-.create-account {
-  background-color: #42b72a;
-  color: white;
-  margin: 8px 0 24px;
+.forgot-link:hover {
+  text-decoration: underline;
 }
 
-.create-account:hover {
-  background-color: #36a420;
-}
-
-footer {
+.signup-info {
+  font-size: 13px;
+  color: #eee;
+  margin-top: 16px;
   text-align: center;
-  font-size: 12px;
-  color: #777;
-}
-
-.meta-logo {
-  height: 20px;
-  margin: 12px 0;
-}
-
-.footer-links a {
-  margin: 0 6px;
-  color: #777;
-  text-decoration: none;
 }
 
 #message {
   text-align: center;
-  color: red;
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 14px;
 }
+
 .profile-photo {
   display: flex;
   justify-content: center;
@@ -108,9 +102,30 @@ footer {
 }
 
 .profile-photo img {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 16px;
+  }
+
+  .app-title {
+    font-size: 20px;
+  }
+
+  .login-box input,
+  .login-box button {
+    font-size: 14px;
+  }
+
+  .signup-info {
+    font-size: 12px;
+  }
 }
 
