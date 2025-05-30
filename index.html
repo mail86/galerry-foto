@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload & Galeri Gambar</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h2><i class="fas fa-cloud-upload-alt"></i> Upload Gambar ke Supabase</h2>
+    
+    <div class="upload-box">
+      <input type="file" id="fileInput">
+      <button onclick="uploadFile()" class="btn primary"><i class="fas fa-upload"></i> Upload</button>
+      <button onclick="logout()" class="btn danger"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      <p id="status"></p>
+    </div>
+
+    <h3><i class="fas fa-images"></i> Galeri Gambar</h3>
+    <div id="gallery" class="gallery-grid"></div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

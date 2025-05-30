@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Galeri Gambar Supabase</title>
+  <style>
+    img { width: 150px; margin: 10px; border-radius: 10px; }
+    .gallery { display: flex; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <h1>Galeri Gambar dari Supabase</h1>
+  <div class="gallery" id="gallery"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    const supabase = supabase.createClient('https://qngixdibqzxarqpoqypz.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFuZ2l4ZGlicXp4YXJxcG9xeXB6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg0MTY2NDMsImV4cCI6MjA2Mzk5MjY0M30.a-LJ2EcgzuNm7K_9k_GH5C0ognKVIlXU-aSASE-2rcM');
+    const bucket = 'dokumen';
+
+    async function loadImages() {
+      const { data, error } = await supabase.storage.from(bucket).list('', {
+        limit: 100,
+        offset: 0,
+        sortBy: { column: 'name', order: 'asc' }
+      });
+
+      if (error) {
+        console.error('Gagal load:', error.message);
+        return;
+      }
+
+      const gallery = document.getElementById('gallery');
+      data.forEach(file => {
+        const url = supabase.storage.from(bucket).getPublicUrl(file.name).data.publicUrl;
+        const img = document.createElement('img');
+        img.src = url;
+        gallery.appendChild(img);
+      });
+    }
+
+    loadImages();
+  </script>
+</body>
+</html>

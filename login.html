@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login ke Supabase</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+
+    <div class="input-group">
+      <i class="fa fa-envelope icon"></i>
+      <input type="email" id="email" placeholder="Email">
+    </div>
+
+    <div class="input-group">
+      <i class="fa fa-lock icon"></i>
+      <input type="password" id="password" placeholder="Password">
+    </div>
+
+    <button onclick="login()">Login</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    const { createClient } = supabase;
+    const supabaseClient = createClient(
+      'https://qngixdibqzxarqpoqypz.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFuZ2l4ZGlicXp4YXJxcG9xeXB6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg0MTY2NDMsImV4cCI6MjA2Mzk5MjY0M30.a-LJ2EcgzuNm7K_9k_GH5C0ognKVIlXU-aSASE-2rcM'
+    );
+
+    async function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        document.getElementById("message").innerText = "Gagal login: " + error.message;
+      } else {
+        document.getElementById("message").innerText = "Berhasil login, redirect...";
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 500); // beri waktu session tersimpan
+      }
+    }
+  </script>
+</body>
+</html>

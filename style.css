@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* Global */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f7f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Judul */
+h2, h3 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+/* Upload */
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+#fileInput {
+  padding: 8px;
+  font-size: 16px;
+}
+
+/* Tombol */
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.btn.primary {
+  background-color: #3498db;
+}
+
+.btn.primary:hover {
+  background-color: #2980b9;
+}
+
+.btn.danger {
+  background-color: #e74c3c;
+}
+
+.btn.danger:hover {
+  background-color: #c0392b;
+}
+
+/* Galeri */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.image-wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  animation: fadeIn 0.6s ease;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Tombol hapus */
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(231, 76, 60, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background: rgba(192, 57, 43, 0.95);
+}
+
+/* Status */
+#status {
+  font-style: italic;
+  color: #555;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+  .upload-box {
+    gap: 8px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

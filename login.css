@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #e0f2fe, #dbeafe);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Animasi masuk */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Container utama */
+.login-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  width: 90%;
+  max-width: 400px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Judul */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+/* Input group */
+.input-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 12px 12px 42px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.input-group .icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+/* Tombol */
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: #1e40af;
+}
+
+/* Pesan */
+#message {
+  margin-top: 1rem;
+  color: #dc2626;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Responsive tambahan */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1.5rem;
+  }
+  .login-container h2 {
+    font-size: 1.5rem;
+  }
+  .login-container button {
+    font-size: 0.95rem;
+  }
+}
