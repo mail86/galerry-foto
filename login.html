@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login ke Supabase</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="login.css">
 </head>
 <body>
   <div class="login-container">
-     <div class="login-box">
-    <h2>Login</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Logo" class="logo">
 
-    <div class="input-group">
-      <i class="fa fa-envelope icon"></i>
-      <input type="email" id="email" placeholder="Email">
+    <div class="login-box">
+      <input type="email" id="email" placeholder="Nomor ponsel atau email">
+      <input type="password" id="password" placeholder="Kata sandi">
+      <button onclick="login()">Login</button>
+      <a href="#" class="forgot-link">Lupa kata sandi?</a>
     </div>
 
-    <div class="input-group">
-      <i class="fa fa-lock icon"></i>
-      <input type="password" id="password" placeholder="Password">
-    </div>
+    <button class="create-account">Buat akun baru</button>
 
-    <button onclick="login()">Login</button>
-    <p id="message"></p>
+    <footer>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Meta_Platforms_Inc._logo.svg" alt="Meta" class="meta-logo">
+      <div class="footer-links">
+        <a href="#">Tentang</a>
+        <a href="#">Bantuan</a>
+        <a href="#">Lainnya</a>
+      </div>
+    </footer>
   </div>
 
   <script>
@@ -38,13 +43,13 @@
 
       const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
 
-      if (error) {
-        document.getElementById("message").innerText = "Gagal login: " + error.message;
-      } else {
-        document.getElementById("message").innerText = "Berhasil login, redirect...";
-        setTimeout(() => {
-          window.location.href = "index.html";
-        }, 500); // beri waktu session tersimpan
+      const msg = document.createElement("p");
+      msg.id = "message";
+      msg.textContent = error ? "Gagal login: " + error.message : "Berhasil login, redirect...";
+      document.querySelector(".login-box").appendChild(msg);
+
+      if (!error) {
+        setTimeout(() => window.location.href = "index.html", 500);
       }
     }
   </script>
