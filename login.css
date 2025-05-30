@@ -2,100 +2,102 @@
 
 body {
   margin: 0;
-  padding: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(to right, #dbeafe, #e0f2fe);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  background: #fff;
 }
 
 .login-container {
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px;
+  max-width: 480px;
+  margin: auto;
+}
+
+.logo {
+  width: 60px;
+  margin-bottom: 24px;
 }
 
 .login-box {
+  width: 100%;
   background: white;
-  border-radius: 16px;
-  padding: 32px 24px;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 24px;
-  color: #1e3a8a;
-  font-size: 24px;
-}
-
-.input-group {
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.input-group .icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #888;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 12px 12px 12px 40px;
+  padding: 16px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 12px;
   font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   box-sizing: border-box;
 }
 
 button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   font-size: 16px;
-  background-color: #2563eb;
-  color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s;
+  font-weight: bold;
 }
 
-button:hover {
-  background-color: #1d4ed8;
+.login-box button {
+  background-color: #1877f2;
+  color: white;
+  margin-bottom: 16px;
 }
 
-#message {
-  margin-top: 16px;
+.login-box button:hover {
+  background-color: #155ecb;
+}
+
+.forgot-link {
+  display: block;
   text-align: center;
-  color: #e11d48;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #1877f2;
   font-size: 14px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.create-account {
+  background-color: #42b72a;
+  color: white;
+  margin: 8px 0 24px;
 }
-/* Tambahkan media query ini untuk memperbesar di HP */
-@media (max-width: 480px) {
-  .login-box {
-    max-width: 90%;
-    padding: 24px 16px;
-  }
 
-  h2 {
-    font-size: 20px;
-  }
+.create-account:hover {
+  background-color: #36a420;
+}
 
-  input, button {
-    font-size: 15px;
-  }
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+}
+
+.meta-logo {
+  height: 20px;
+  margin: 12px 0;
+}
+
+.footer-links a {
+  margin: 0 6px;
+  color: #777;
+  text-decoration: none;
+}
+
+#message {
+  text-align: center;
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
 }
