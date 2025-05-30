@@ -110,3 +110,20 @@ async function logout() {
   await supabaseClient.auth.signOut();
   window.location.href = "login.html";
 }
+// Fungsi untuk menampilkan gambar fullscreen
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.body.addEventListener('click', function (e) {
+    if (e.target.matches('.gallery-grid img')) {
+      lightboxImg.src = e.target.src;
+      lightbox.style.display = 'flex';
+    }
+  });
+});
+
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+
