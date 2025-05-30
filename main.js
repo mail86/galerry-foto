@@ -73,7 +73,7 @@ async function loadGallery(userId) {
 
     const { data: signedUrlData } = await supabaseClient.storage
       .from(bucketName)
-      .createSignedUrl(fullPath, 3600);
+      .createSignedUrl(fullPath, 10);
 
     const wrapper = document.createElement("div");
     wrapper.className = "image-wrapper";
