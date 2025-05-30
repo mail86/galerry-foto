@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login ke Supabase</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Masuk ke Aplikasi</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="login.css"/>
 </head>
 <body>
+  <div class="overlay"></div>
   <div class="login-container">
-   
-
     <div class="login-box">
-       <div class="profile-photo">
-         <img src="IM.jpg" alt="IM.jpg">
-  </div> 
-      <input type="email" id="email" placeholder="Nomor ponsel atau email">
-      <input type="password" id="password" placeholder="Kata sandi">
-      <button onclick="login()">Login</button>
-      <a href="#" class="forgot-link">Lupa kata sandi?</a>
-    </div>
-
-    <button class="create-account">Buat akun baru</button>
-
-    <footer>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Meta_Platforms_Inc._logo.svg" alt="Meta" class="meta-logo">
-      <div class="footer-links">
-        <a href="#">Tentang</a>
-        <a href="#">Bantuan</a>
-        <a href="#">Lainnya</a>
+      <h2 class="app-title">Login ke Aplikasi</h2>
+      <div class="profile-photo">
+        <img src="IM.jpg" alt="Foto Profil"/>
       </div>
-    </footer>
+      <input type="email" id="email" placeholder="Email Anda"/>
+      <input type="password" id="password" placeholder="Kata sandi"/>
+      <button onclick="login()">Masuk</button>
+      <a href="#" class="forgot-link">Lupa sandi?</a>
+      <p id="message"></p>
+    </div>
+    <p class="signup-info">Belum punya akun? Hubungi admin.</p>
   </div>
 
   <script>
@@ -46,10 +37,9 @@
 
       const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
 
-      const msg = document.createElement("p");
-      msg.id = "message";
-      msg.textContent = error ? "Gagal login: " + error.message : "Berhasil login, redirect...";
-      document.querySelector(".login-box").appendChild(msg);
+      const msg = document.getElementById("message");
+      msg.textContent = error ? "Login gagal: " + error.message : "Login berhasil, mengarahkan...";
+      msg.style.color = error ? "red" : "green";
 
       if (!error) {
         setTimeout(() => window.location.href = "index.html", 500);
@@ -58,3 +48,4 @@
   </script>
 </body>
 </html>
+
