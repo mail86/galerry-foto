@@ -4,103 +4,82 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(to right, #e0f2fe, #dbeafe);
+  background: linear-gradient(to right, #dbeafe, #e0f2fe);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
-/* Animasi masuk */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Container utama */
 .login-container {
-  background-color: #fff;
-  padding: 2rem;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.login-box {
+  background: white;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  width: 90%;
+  padding: 32px 24px;
   max-width: 400px;
-  animation: fadeInUp 0.6s ease-out;
+  margin: 0 auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Judul */
-.login-container h2 {
+h2 {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
   color: #1e3a8a;
-  font-weight: 600;
+  font-size: 24px;
 }
 
-/* Input group */
 .input-group {
   position: relative;
-  margin-bottom: 1rem;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 12px 12px 12px 42px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  box-sizing: border-box;
+  margin-bottom: 20px;
 }
 
 .input-group .icon {
   position: absolute;
-  top: 50%;
   left: 12px;
+  top: 50%;
   transform: translateY(-50%);
-  color: #6b7280;
-  font-size: 1.1rem;
+  color: #888;
 }
 
-/* Tombol */
-.login-container button {
+.input-group input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+button {
   width: 100%;
   padding: 12px;
+  font-size: 16px;
   background-color: #2563eb;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s;
 }
 
-.login-container button:hover {
-  background-color: #1e40af;
+button:hover {
+  background-color: #1d4ed8;
 }
 
-/* Pesan */
 #message {
-  margin-top: 1rem;
-  color: #dc2626;
+  margin-top: 16px;
   text-align: center;
-  font-size: 0.9rem;
+  color: #e11d48;
+  font-size: 14px;
 }
 
-/* Responsive tambahan */
-@media (max-width: 480px) {
-  .login-container {
-    padding: 1.5rem;
-  }
-  .login-container h2 {
-    font-size: 1.5rem;
-  }
-  .login-container button {
-    font-size: 0.95rem;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
