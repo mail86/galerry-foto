@@ -15,24 +15,26 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script>
-    const supabaseClient = supabase.createClient(
-      "https://qngixdibqzxarqpoqypz.supabase.co",
-       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFuZ2l4ZGlicXp4YXJxcG9xeXB6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg0MTY2NDMsImV4cCI6MjA2Mzk5MjY0M30.a-LJ2EcgzuNm7K_9k_GH5C0ognKVIlXU-aSASE-2rcM'
-    );
+ <script>
+  const supabaseClient = supabase.createClient(
+    "https://qngixdibqzxarqpoqypz.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFuZ2l4ZGlicXp4YXJxcG9xeXB6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg0MTY2NDMsImV4cCI6MjA2Mzk5MjY0M30.a-LJ2EcgzuNm7K_9k_GH5C0ognKVIlXU-aSASE-2rcM"
+  );
 
-    document.getElementById("resetBtn").addEventListener("click", async () => {
-      const email = document.getElementById("emailInput").value;
-      const { error } = await supabaseClient.auth.resetPasswordForEmail(maildaturohman@gmail.com, {
-        redirectTo: "https://galerry-foto.vercel.app/update-password.html" // Ganti ke domain milikmu
-      });
+  document.getElementById("resetBtn").addEventListener("click", async () => {
+    const email = document.getElementById("emailInput").value;
 
-      if (error) {
-        document.getElementById("status").innerText = "Gagal mengirim: " + error.message;
-      } else {
-        document.getElementById("status").innerText = "Link reset sudah dikirim ke email.";
-      }
+    const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+      redirectTo: "https://galerry-foto.vercel.app/update-password.html"
     });
-  </script>
+
+    if (error) {
+      document.getElementById("status").innerText = "Gagal mengirim: " + error.message;
+    } else {
+      document.getElementById("status").innerText = "Link reset sudah dikirim ke email.";
+    }
+  });
+</script>
+
 </body>
 </html>
