@@ -22,7 +22,7 @@
   );
 
   document.getElementById("resetBtn").addEventListener("click", async () => {
-    const email = document.getElementById("emailInput").value;
+    const email = document.getElementById("maildaturohman@gmail.com").value;
 
     const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
       redirectTo: "https://galerry-foto.vercel.app/update-password.html"
