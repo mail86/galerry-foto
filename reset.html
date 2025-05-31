@@ -23,7 +23,7 @@
 
     document.getElementById("resetBtn").addEventListener("click", async () => {
       const email = document.getElementById("emailInput").value;
-      const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+      const { error } = await supabaseClient.auth.resetPasswordForEmail(maildaturohman@gmail.com, {
         redirectTo: "https://galerry-foto.vercel.app/update-password.html" // Ganti ke domain milikmu
       });
 
