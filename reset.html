@@ -20,20 +20,19 @@
     "https://qngixdibqzxarqpoqypz.supabase.co",
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFuZ2l4ZGlicXp4YXJxcG9xeXB6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg0MTY2NDMsImV4cCI6MjA2Mzk5MjY0M30.a-LJ2EcgzuNm7K_9k_GH5C0ognKVIlXU-aSASE-2rcM"
   );
+document.getElementById("resetBtn").addEventListener("click", async () => {
+  const email = document.getElementById("emailInput").value;
 
-  document.getElementById("resetBtn").addEventListener("click", async () => {
-    const email = document.getElementById("maildaturohman@gmail.com").value;
-
-    const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-      redirectTo: "https://galerry-foto.vercel.app/update-password.html"
-    });
-
-    if (error) {
-      document.getElementById("status").innerText = "Gagal mengirim: " + error.message;
-    } else {
-      document.getElementById("status").innerText = "Link reset sudah dikirim ke email.";
-    }
+  const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+    redirectTo: "https://galerry-foto.vercel.app/update-password.html"
   });
+
+  if (error) {
+    document.getElementById("status").innerText = "Gagal mengirim: " + error.message;
+  } else {
+    document.getElementById("status").innerText = "Link reset sudah dikirim ke email.";
+  }
+});
 </script>
 
 </body>
